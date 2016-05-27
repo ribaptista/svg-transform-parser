@@ -50,16 +50,14 @@ module.exports = (function() {
         peg$c13 = "translate",
         peg$c14 = { type: "literal", value: "translate", description: "\"translate\"" },
         peg$c15 = function(tx, ty) {
-              var t = {tx: tx};
-              if (ty) t.ty = ty;
-              return {translate: t};
+              var t = {tx: tx, ty: ty ? ty : 0};
+              return {op: 'translate', args: t};
             },
         peg$c16 = "scale",
         peg$c17 = { type: "literal", value: "scale", description: "\"scale\"" },
         peg$c18 = function(sx, sy) {
-              var s = {sx: sx};
-              if (sy) s.sy = sy;
-              return {scale: s};
+              var s = {sx: sx, sy: sy ? sy : 1};
+              return {op: 'scale', args: s};
             },
         peg$c19 = "rotate",
         peg$c20 = { type: "literal", value: "rotate", description: "\"rotate\"" },
@@ -69,17 +67,17 @@ module.exports = (function() {
                 r.cx = c[0];
                 r.cy = c[1];
               }
-              return {rotate: r};
+              return {op: 'rotate', args: r};
             },
         peg$c22 = "skewX",
         peg$c23 = { type: "literal", value: "skewX", description: "\"skewX\"" },
         peg$c24 = function(angle) {
-              return {skewX: {angle: angle}};
+              return {op: 'skewX', args: {angle: angle}};
             },
         peg$c25 = "skewY",
         peg$c26 = { type: "literal", value: "skewY", description: "\"skewY\"" },
         peg$c27 = function(angle) {
-              return {skewY: {angle: angle}};
+              return {op: 'skewY', args: {angle: angle}};
             },
         peg$c28 = function(f) { return parseFloat(f.join("")); },
         peg$c29 = function(i) { return parseInt(i.join("")); },
