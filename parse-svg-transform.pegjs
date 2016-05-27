@@ -31,16 +31,14 @@ matrix
 
 translate
   = "translate" wsp* "(" wsp* tx:number ty:commaWspNumber? wsp* ")" {
-      var t = {tx: tx};
-      if (ty) t.ty = ty;
-      return {translate: t};
+      var t = {tx: tx, ty: ty ? ty : 0};
+      return {op: 'translate', args: t};
     }
 
 scale
   = "scale" wsp* "(" wsp* sx:number sy:commaWspNumber? wsp* ")" {
-      var s = {sx: sx};
-      if (sy) s.sy = sy;
-      return {scale: s};
+      var s = {sx: sx, sy: sy ? sy : 1};
+      return {op: 'scale', args: s};
     }
 
 rotate
@@ -50,17 +48,17 @@ rotate
         r.cx = c[0];
         r.cy = c[1];
       }
-      return {rotate: r};
+      return {op: 'rotate', args: r};
     }
 
 skewX
   = "skewX" wsp* "(" wsp* angle:number wsp* ")" {
-      return {skewX: {angle: angle}};
+      return {op: 'skewX', args: {angle: angle}};
     }
 
 skewY
   = "skewY" wsp* "(" wsp* angle:number wsp* ")" {
-      return {skewY: {angle: angle}};
+      return {op: 'skewY', args: {angle: angle}};
     }
 
 number
