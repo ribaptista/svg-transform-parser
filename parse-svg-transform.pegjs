@@ -7,8 +7,8 @@ transformList
   = wsp* ts:transforms? wsp* { return ts; }
 
 transforms
-  = t:transform commaWsp+ ts:transforms { for (var k in t) ts[k] = t[k]; return ts; }
-    / transform
+  = t:transform commaWsp+ ts:transforms { return [t].concat(ts) }
+    / t:transform { return [t] }
 
 transform
   = matrix
