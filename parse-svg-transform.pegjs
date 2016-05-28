@@ -62,7 +62,7 @@ skewY
     }
 
 number
-  = f:(sign? floatingPointConstant) { return parseFloat(f.join("")); }
+  = s:sign? f:floatingPointConstant { return parseFloat([s, f.join("")].join("")); }
     / i:(sign? integerConstant) { return parseInt(i.join("")); }
 
 commaWspNumber
@@ -89,7 +89,7 @@ fractionalConstant "fractionalConstant"
     / d:digitSequence "." { return d.join(""); }
 
 exponent
-  =  [eE] sign? digitSequence
+  = e:[eE] s:sign? d:digitSequence { return [e, s, d.join("")].join("") }
 
 sign
   = [+-]
