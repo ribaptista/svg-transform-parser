@@ -25,8 +25,8 @@ matrix
        c:number commaWsp
        d:number commaWsp
        e:number commaWsp
-       f:number wsp* ")" { 
-      return {matrix: {a: a, b: b, c: c, d: d, e: e, f: f}};
+       f:number wsp* ")" {
+      return {op: 'matrix', args: {a: a, b: b, c: c, d: d, e: e, f: f}};
     }
 
 translate

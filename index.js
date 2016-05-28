@@ -44,8 +44,8 @@ module.exports = (function() {
         peg$c9 = { type: "literal", value: "(", description: "\"(\"" },
         peg$c10 = ")",
         peg$c11 = { type: "literal", value: ")", description: "\")\"" },
-        peg$c12 = function(a, b, c, d, e, f) { 
-              return {matrix: {a: a, b: b, c: c, d: d, e: e, f: f}};
+        peg$c12 = function(a, b, c, d, e, f) {
+              return {op: 'matrix', args: {a: a, b: b, c: c, d: d, e: e, f: f}};
             },
         peg$c13 = "translate",
         peg$c14 = { type: "literal", value: "translate", description: "\"translate\"" },
