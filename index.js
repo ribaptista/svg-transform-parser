@@ -56,7 +56,7 @@ module.exports = (function() {
         peg$c16 = "scale",
         peg$c17 = { type: "literal", value: "scale", description: "\"scale\"" },
         peg$c18 = function(sx, sy) {
-              var s = {sx: sx, sy: sy ? sy : 1};
+              var s = {sx: sx, sy: sy ? sy : sx};
               return {op: 'scale', args: s};
             },
         peg$c19 = "rotate",

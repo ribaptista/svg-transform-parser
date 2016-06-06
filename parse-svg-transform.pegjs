@@ -37,7 +37,7 @@ translate
 
 scale
   = "scale" wsp* "(" wsp* sx:number sy:commaWspNumber? wsp* ")" {
-      var s = {sx: sx, sy: sy ? sy : 1};
+      var s = {sx: sx, sy: sy ? sy : sx};
       return {op: 'scale', args: s};
     }
 
