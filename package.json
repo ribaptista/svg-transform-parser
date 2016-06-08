@@ -1,6 +1,6 @@
 {
   "name": "svg-transform-parser",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A small library for parsing SVG transform attribute",
   "main": "index.js",
   "scripts": {
